@@ -8,4 +8,6 @@
     <string name="login">Login</string>
     <string name="or">OR</string>
     <string name="dont_have_an_account">Dont have an account?</string>
+    <string name="Register">Register</string>
+    <string name="Submit">Submit</string>
 </resources>
