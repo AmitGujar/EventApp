@@ -37,7 +37,8 @@ public class Register extends AppCompatActivity {
                     Toasty.info(Register.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    databaseReference.child("Users").child(username).child(name).child("Password").setValue(password);
+                    databaseReference.child("Users").child(username).child("Full Name").setValue(name);
+                    databaseReference.child("Users").child(username).child("Password").setValue(password);
                     Toasty.success(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     finish();
                 }
