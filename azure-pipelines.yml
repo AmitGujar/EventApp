@@ -1,0 +1,49 @@
+trigger:
+  - master
+
+pool:
+  vmImage: "macos-12"
+
+steps:
+  - task: Gradle@3
+    inputs:
+      workingDirectory: ""
+      gradleWrapperFile: "gradlew"
+      gradleOptions: "-Xmx1024m"
+      javaHomeOption: "JDKVersion"
+      jdkVersionOption: "1.11"
+      jdkArchitectureOption: "x64"
+      publishJUnitResults: false
+      testResultsFiles: "**/TEST-*.xml"
+      spotBugsAnalysis: true
+      checkStyleRunAnalysis: true
+      pmdRunAnalysis: true
+      tasks: "assembleRelease"
+    displayName: Gradle Build Progress
+
+  - task: AndroidSigning@3
+    inputs:
+      apkFiles: "**/*.apk"
+      apksign: true
+      apksignerKeystoreFile: "production.keystore"
+      apksignerKeystorePassword: "$(StorePassword)"
+      apksignerKeystoreAlias: "$(KeyStoreAlias)"
+      apksignerKeyPassword: "$(KeyPassword)"
+      apksignerArguments: --out $(Build.SourcesDirectory)/app/build/outputs/apk/release/eventapp.release.apk
+      zipalign: true
+    displayName: Signing APK
+
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: $(Build.SourcesDirectory)
+      contents: "**/*.release.apk"
+      targetFolder: "$(build.artifactStagingDirectory)"
+      overWrite: true
+    displayName: Copying files
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: "$(Build.ArtifactStagingDirectory)/app/build/outputs/apk/release/"
+      artifactName: "apks"
+      publishLocation: "container"
+    displayName: Publishing Artifact
