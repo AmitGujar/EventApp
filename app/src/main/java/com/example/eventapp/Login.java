@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,23 @@ public class Login extends AppCompatActivity {
         final EditText passwordET = findViewById(R.id.passwordET);
         final TextView signUpBtn = findViewById(R.id.signUpBtn);
         final TextView signInBtn = findViewById(R.id.signInBtn);
+        final ImageView passwordIcon = findViewById(R.id.passwordIcon);
+
+        passwordIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (passwordET.getTransformationMethod() == null) {
+                    passwordET.setTransformationMethod(new android.text.method.PasswordTransformationMethod());
+                    Drawable drawable = AppCompatResources.getDrawable(Login.this, R.drawable.password_hide);
+                    passwordIcon.setImageDrawable(drawable);
+                }
+                else {
+                    passwordET.setTransformationMethod(null);
+                    Drawable drawable = AppCompatResources.getDrawable(Login.this, R.drawable.password_show);
+                    passwordIcon.setImageDrawable(drawable);
+                }
+            }
+        });
 
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
