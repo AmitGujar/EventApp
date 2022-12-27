@@ -41,7 +41,6 @@ public class Register extends AppCompatActivity {
             }
         });
 
-
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
