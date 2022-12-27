@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import es.dmoral.toasty.Toasty;
+
 public class Register extends AppCompatActivity {
     DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://eventapp-fb89f-default-rtdb.firebaseio.com/");
     @Override
@@ -31,11 +33,11 @@ public class Register extends AppCompatActivity {
                 String password = passwordET.getText().toString();
 
                 if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(Register.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
+                    Toasty.info(Register.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     databaseReference.child("Users").child(username).child("Password").setValue(password);
-                    Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                    Toasty.success(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }

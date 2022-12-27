@@ -2,8 +2,10 @@ package com.example.eventapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +17,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import es.dmoral.toasty.Toasty;
 
 public class Login extends AppCompatActivity {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://eventapp-fb89f-default-rtdb.firebaseio.com/");
@@ -34,7 +38,7 @@ public class Login extends AppCompatActivity {
                 String username = usernameET.getText().toString();
                 String password = passwordET.getText().toString();
                 if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(Login.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
+                    Toasty.info(Login.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -48,11 +52,11 @@ public class Login extends AppCompatActivity {
                                     finish();
                                 }
                                 else {
-                                    Toast.makeText(Login.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
+                                    Toasty.error(Login.this, "Incorrect Password", Toast.LENGTH_SHORT, true).show();
                                 }
                             }
                             else {
-                                Toast.makeText(Login.this, "User does not exist", Toast.LENGTH_SHORT).show();
+                                Toasty.error(Login.this, "User does not exist", Toast.LENGTH_SHORT, true).show();
                             }
                         }
 
