@@ -28,6 +28,24 @@
         android:layout_marginTop="5dp" />
 
     <EditText
+        android:id="@+id/nameET"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/round_back_dark_blue5_15"
+        android:hint="@string/Name"
+        android:textColorHint="@color/black"
+        android:maxLines="1"
+        android:inputType="text"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="40dp"
+        android:autofillHints="" />
+
+    <EditText
         android:id="@+id/usernameET"
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -42,7 +60,7 @@
         android:paddingEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:autofillHints="" />
 
     <RelativeLayout
@@ -94,30 +112,4 @@
         android:textColor="@color/white"
         android:textSize="17sp"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@drawable/round_back_primary_15"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/signup"/>
-
-        <TextView
-            android:id="@+id/signInBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/Login"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
 </LinearLayout>

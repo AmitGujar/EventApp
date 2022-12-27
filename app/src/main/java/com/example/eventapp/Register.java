@@ -21,14 +21,15 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        final EditText nameET = findViewById(R.id.nameET);
         final EditText usernameET = findViewById(R.id.usernameET);
         final EditText passwordET = findViewById(R.id.passwordET);
         final AppCompatButton signUpBtn = findViewById(R.id.signUpBtn);
-        final TextView signInBtn = findViewById(R.id.signInBtn);
 
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String name = nameET.getText().toString();
                 String username = usernameET.getText().toString();
                 String password = passwordET.getText().toString();
 
@@ -36,17 +37,10 @@ public class Register extends AppCompatActivity {
                     Toasty.info(Register.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    databaseReference.child("Users").child(username).child("Password").setValue(password);
+                    databaseReference.child("Users").child(username).child(name).child("Password").setValue(password);
                     Toasty.success(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     finish();
                 }
-            }
-        });
-
-        signInBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
     }
