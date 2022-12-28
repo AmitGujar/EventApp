@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="150dp"
         android:text="@string/Login"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -29,7 +30,7 @@
     <EditText
         android:id="@+id/usernameET"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dp"
         android:background="@drawable/round_back_dark_blue5_15"
         android:hint="@string/username"
         android:textColorHint="@color/black"
@@ -46,7 +47,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
@@ -93,7 +94,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signInBtn"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:text="@string/Login"
@@ -139,7 +140,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="40dp"
         android:background="@drawable/round_back_primary_15"
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
@@ -158,9 +159,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/dont_have_an_account"
+            android:text="@string/Register"
             android:textColor="@color/white"
             android:textSize="17sp"
             android:textStyle="bold" />
     </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/adminBtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/admin_login"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_back_primary_15"
+        android:textColor="@color/white"
+        android:textSize="17sp"/>
 </LinearLayout>
