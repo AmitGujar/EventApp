@@ -1,8 +1,10 @@
-package com.example.eventapp;
+package com.amitgujar.eventapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.amitgujar.eventapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

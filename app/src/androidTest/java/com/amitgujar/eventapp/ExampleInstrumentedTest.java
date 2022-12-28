@@ -1,4 +1,4 @@
-package com.example.eventapp;
+package com.amitgujar.eventapp;
 
 import android.content.Context;
 

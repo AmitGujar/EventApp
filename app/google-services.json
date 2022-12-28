@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:179373036674:android:a67b011bb95ca65e12109b",
         "android_client_info": {
-          "package_name": "com.example.eventapp"
+          "package_name": "com.amitgujar.eventapp"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "179373036674-si0u91b9iq36fcb37ok5brieh7ko7sbo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.eventapp",
+            "package_name": "com.amitgujar.eventapp",
             "certificate_hash": "ce52adbf337e033958d387cfdeae227e5c5510b6"
           }
         },

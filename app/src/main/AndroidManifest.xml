@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,14 +14,14 @@
         android:theme="@style/Theme.EventApp"
         tools:targetApi="31" >
         <activity
-            android:name=".Register"
+            android:name="com.amitgujar.eventapp.Register"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login"
+            android:name="com.amitgujar.eventapp.Login"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +34,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.amitgujar.eventapp.MainActivity"
             android:exported="false" >
 
             <!-- <intent-filter> -->

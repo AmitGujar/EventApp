@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace 'com.example.eventapp'
+    namespace 'com.amitgujar.eventapp'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.eventapp"
+        applicationId "com.amitgujar.eventapp"
         minSdk 30
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "3.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

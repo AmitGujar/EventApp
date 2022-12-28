@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/background_login"
-    tools:context=".Register">
+    tools:context="com.amitgujar.eventapp.Register">
 
     <TextView
         android:layout_width="wrap_content"
