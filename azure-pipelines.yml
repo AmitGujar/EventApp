@@ -23,13 +23,13 @@ steps:
 
   - task: AndroidSigning@3
     inputs:
-      apkFiles: "**/*.apk"
+      apkFiles: "**/*.aab"
       apksign: true
       apksignerKeystoreFile: "production.keystore"
       apksignerKeystorePassword: "$(StorePassword)"
       apksignerKeystoreAlias: "$(KeyStoreAlias)"
       apksignerKeyPassword: "$(KeyPassword)"
-      apksignerArguments: --out $(Build.SourcesDirectory)/app/build/outputs/apk/release/eventapp.release.apk
+      apksignerArguments: --out $(Build.SourcesDirectory)/app/build/outputs/build/release/eventapp.release.aab
       zipalign: true
     displayName: Signing APK
 
@@ -43,7 +43,7 @@ steps:
 
   - task: PublishBuildArtifacts@1
     inputs:
-      pathtoPublish: "$(Build.ArtifactStagingDirectory)/app/build/outputs/apk/release/"
+      pathtoPublish: "$(Build.ArtifactStagingDirectory)/app/build/outputs/build/release/"
       artifactName: "apks"
       publishLocation: "container"
     displayName: Publishing Artifact
