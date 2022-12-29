@@ -50,6 +50,6 @@ steps:
 
   - task: GooglePlayRelease@2
     inputs:
-    apkFile: '$(Build.ArtifactStagingDirectory)/app/build/outputs/apk/release/*.apk'
-    serviceEndpoint: 'Google Play Deployment'
-    track: 'internal'
+      apkFile: '$(Build.ArtifactStagingDirectory)/app/build/outputs/apk/release/*.apk'
+      serviceEndpoint: 'Google Play Deployment'
+      track: 'internal'
