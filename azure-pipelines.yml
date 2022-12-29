@@ -48,7 +48,7 @@ steps:
       publishLocation: "container"
     displayName: Publishing Artifact
 
-  - task: GooglePlayRelease@2
+  - task: GooglePlayRelease@4
     inputs:
       apkFile: '$(Build.ArtifactStagingDirectory)/app/build/outputs/apk/release/*.apk'
       serviceEndpoint: 'Google Play Deployment'
