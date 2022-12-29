@@ -47,10 +47,3 @@ steps:
       artifactName: "apks"
       publishLocation: "container"
     displayName: Publishing Artifact
-
-  - task: GooglePlayRelease@4
-    inputs:
-      apkFile: '$(Build.ArtifactStagingDirectory)/app/build/outputs/apk/release/*.apk'
-      serviceEndpoint: 'Google Play Deployment'
-      track: 'internal'
-      applicationId: com.amitgujar.eventapp 
