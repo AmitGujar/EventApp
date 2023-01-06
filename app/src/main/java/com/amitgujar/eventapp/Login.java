@@ -33,6 +33,7 @@ public class Login extends AppCompatActivity {
         final EditText passwordET = findViewById(R.id.passwordET);
         final TextView signUpBtn = findViewById(R.id.signUpBtn);
         final TextView signInBtn = findViewById(R.id.signInBtn);
+        final TextView adminBtn = findViewById(R.id.adminBtn);
         final ImageView passwordIcon = findViewById(R.id.passwordIcon);
 
         passwordIcon.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +93,13 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this, Register.class));
+            }
+        });
+
+        adminBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this, adminLogin.class));
             }
         });
     }
