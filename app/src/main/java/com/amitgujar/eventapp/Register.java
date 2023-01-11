@@ -42,9 +42,30 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        final EditText passwordET = findViewById(R.id.passwordET);
+        final ImageView passwordIcon = findViewById(R.id.passwordIcon);
+
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseFirestore=FirebaseFirestore.getInstance();
         progressBar=new ProgressBar(this);
+
+
+        passwordIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (passwordET.getTransformationMethod() == null) {
+                    passwordET.setTransformationMethod(new android.text.method.PasswordTransformationMethod());
+                    Drawable drawable = AppCompatResources.getDrawable(Register.this, R.drawable.password_hide);
+                    passwordIcon.setImageDrawable(drawable);
+                }
+                else {
+                    passwordET.setTransformationMethod(null);
+                    Drawable drawable = AppCompatResources.getDrawable(Register.this, R.drawable.password_show);
+                    passwordIcon.setImageDrawable(drawable);
+                }
+            }
+        });
 
         binding.signUpBtn.setOnClickListener(new View.OnClickListener(){
             @Override
