@@ -2,11 +2,14 @@ package com.amitgujar.eventapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +31,23 @@ public class adminLogin extends AppCompatActivity {
         final EditText adminuser = findViewById(R.id.adminuser);
         final EditText adminpass = findViewById(R.id.adminpass);
         final TextView signInBtn = findViewById(R.id.signInBtn);
+        final ImageView passwordIcon = findViewById(R.id.passwordIcon);
+
+        passwordIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (adminpass.getTransformationMethod() == null) {
+                    adminpass.setTransformationMethod(new android.text.method.PasswordTransformationMethod());
+                    Drawable drawable = AppCompatResources.getDrawable(adminLogin.this, R.drawable.password_hide);
+                    passwordIcon.setImageDrawable(drawable);
+                }
+                else {
+                    adminpass.setTransformationMethod(null);
+                    Drawable drawable = AppCompatResources.getDrawable(adminLogin.this, R.drawable.password_show);
+                    passwordIcon.setImageDrawable(drawable);
+                }
+            }
+        });
 
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +69,7 @@ public class adminLogin extends AppCompatActivity {
                                     finish();
                                 }
                                 else {
-                                    Toasty.error(adminLogin.this, "Incorrect Password", Toast.LENGTH_SHORT, true).show();
+                                    Toasty.error(adminLogin.this, "You do not have permission", Toast.LENGTH_SHORT, true).show();
                                 }
                             }
                             else {

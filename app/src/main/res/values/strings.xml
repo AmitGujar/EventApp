@@ -13,4 +13,6 @@
     <string name="Email">Email</string>
     <string name="Name">Full Name</string>
     <string name="admin_login">Admin Login</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email_address">Email Address</string>
 </resources>
