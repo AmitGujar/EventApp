@@ -39,7 +39,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-//        setContentView(R.layout.activity_login);
         final TextView signUpBtn = findViewById(R.id.signUpBtn);
         final TextView adminBtn = findViewById(R.id.adminBtn);
         final EditText passwordET = findViewById(R.id.passwordET);
