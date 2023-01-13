@@ -1,0 +1,4 @@
+version: '3'
+services:
+  website:
+    image: amitgujar/node-app:latest
