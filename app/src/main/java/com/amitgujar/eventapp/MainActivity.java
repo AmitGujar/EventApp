@@ -63,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
                 String coordinatorname1 = coordinatorname.getText().toString();
                 String date1 = date.getText().toString();
 
-                databaseReference.child("Event").child(eventname1).child("Venue").setValue(venue1);
-                databaseReference.child("Event").child(eventname1).child("Coordinator").setValue(coordinatorname1);
-                databaseReference.child("Event").child(eventname1).child("Date").setValue(date1);
+                databaseReference.child("All Events").child(eventname1).child("Venue").setValue(venue1);
+                databaseReference.child("All Events").child(eventname1).child("Coordinator").setValue(coordinatorname1);
+                databaseReference.child("All Events").child(eventname1).child("Date").setValue(date1);
                 Toasty.success(MainActivity.this, "Event Added Successfully", Toasty.LENGTH_SHORT).show();
             }
         });
