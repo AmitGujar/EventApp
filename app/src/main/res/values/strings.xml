@@ -20,4 +20,5 @@
     <string name="venue">Venue</string>
     <string name="date">Date</string>
     <string name="co_ordinator_name">Co-ordinator Name</string>
+    <string name="event_list">Event List</string>
 </resources>
