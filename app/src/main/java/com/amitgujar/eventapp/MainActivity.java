@@ -5,6 +5,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -19,8 +20,8 @@ import es.dmoral.toasty.Toasty;
 
 public class MainActivity extends AppCompatActivity {
 
-    DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://eventapp-fb89f-default-rtdb.firebaseio.com/");
-
+//    DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://eventapp-fb89f-default-rtdb.firebaseio.com/");
+DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://eventappfinal-3f1bb-default-rtdb.firebaseio.com/");
     EditText date;
     int year;
     int month;
@@ -67,7 +68,11 @@ public class MainActivity extends AppCompatActivity {
                 databaseReference.child("All Events").child(eventname1).child("Coordinator").setValue(coordinatorname1);
                 databaseReference.child("All Events").child(eventname1).child("Date").setValue(date1);
                 Toasty.success(MainActivity.this, "Event Added Successfully", Toasty.LENGTH_SHORT).show();
+//                Intent intent = new Intent(MainActivity.this, listEvents.class);
+//                startActivity(intent);
+//                finish();
             }
         });
+
     }
 }
