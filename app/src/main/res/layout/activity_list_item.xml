@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/eventname"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="500dp"
         android:background="@drawable/round_back_dark_blue5_15"
         android:hint="Upcoming Event"
         android:textColorHint="@color/black"
