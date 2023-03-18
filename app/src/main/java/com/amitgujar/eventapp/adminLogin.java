@@ -71,7 +71,7 @@ public class adminLogin extends AppCompatActivity {
                             if (snapshot.hasChild(username)) {
                                 if (snapshot.child("admin").child("Password").getValue().toString().equals(password)) {
                                     Toasty.success(adminLogin.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(adminLogin.this, MainActivity.class);
+                                    Intent intent = new Intent(adminLogin.this, listItem.class);
                                     startActivity(intent);
                                     finish();
                                 }
