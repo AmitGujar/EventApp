@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/background_login"
-    tools:context="com.amitgujar.eventapp.Register">
+    tools:context="com.amitgujar.eventapp.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
         android:textStyle="bold"
         android:textColor="#000000"/>
 
-    <TextView
+    <EditText
         android:id="@+id/eventname"
         android:layout_width="match_parent"
         android:layout_height="40dp"

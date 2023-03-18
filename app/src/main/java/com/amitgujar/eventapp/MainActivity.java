@@ -68,9 +68,9 @@ DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference
                 databaseReference.child("All Events").child(eventname1).child("Coordinator").setValue(coordinatorname1);
                 databaseReference.child("All Events").child(eventname1).child("Date").setValue(date1);
                 Toasty.success(MainActivity.this, "Event Added Successfully", Toasty.LENGTH_SHORT).show();
-//                Intent intent = new Intent(MainActivity.this, listEvents.class);
-//                startActivity(intent);
-//                finish();
+                Intent intent = new Intent(MainActivity.this, listItem.class);
+                startActivity(intent);
+                finish();
             }
         });
 
