@@ -32,7 +32,6 @@ import es.dmoral.toasty.Toasty;
 public class Login extends AppCompatActivity {
     ActivityLoginBinding binding;
     FirebaseAuth firebaseAuth;
-    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +42,8 @@ public class Login extends AppCompatActivity {
         final TextView adminBtn = findViewById(R.id.adminBtn);
         final EditText passwordET = findViewById(R.id.passwordET);
         final ImageView passwordIcon = findViewById(R.id.passwordIcon);
-
+        ProgressBar progressBar = findViewById(R.id.progressBar);
         firebaseAuth = FirebaseAuth.getInstance();
-        progressBar = new ProgressBar(this);
 
 
         passwordIcon.setOnClickListener(new View.OnClickListener() {
