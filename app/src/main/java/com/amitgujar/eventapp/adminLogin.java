@@ -29,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import es.dmoral.toasty.Toasty;
 
 public class adminLogin extends AppCompatActivity {
+
+    FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://eventappfinal-3f1bb-default-rtdb.firebaseio.com/");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,10 @@ public class adminLogin extends AppCompatActivity {
         final EditText adminpass = findViewById(R.id.adminpass);
         final TextView signInBtn = findViewById(R.id.signInBtn);
         final ImageView passwordIcon = findViewById(R.id.passwordIcon);
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         passwordIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,31 +68,23 @@ public class adminLogin extends AppCompatActivity {
                 String username = adminuser.getText().toString();
                 String password = adminpass.getText().toString();
                 if (username.isEmpty() || password.isEmpty()) {
-                    Toasty.info(adminLogin.this, "Please enter all the details", Toasty.LENGTH_SHORT).show();
+                    Toasty.error(adminLogin.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                    progressBar.setVisibility(View.VISIBLE);
+                    firebaseAuth.signInWithEmailAndPassword(username, password).addOnSuccessListener(new  OnSuccessListener<AuthResult>() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.hasChild(username)) {
-                                if (snapshot.child("admin").child("Password").getValue().toString().equals(password)) {
-                                    Toasty.success(adminLogin.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(adminLogin.this, listItem.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                                else {
-                                    Toasty.error(adminLogin.this, "You do not have permission", Toast.LENGTH_SHORT, true).show();
-                                }
-                            }
-                            else {
-                                Toasty.error(adminLogin.this, "User does not exist", Toast.LENGTH_SHORT, true).show();
-                            }
+                        public void onSuccess(AuthResult authResult) {
+                            progressBar.setVisibility(View.GONE);
+                            Toasty.success(adminLogin.this, "Login Successful", Toasty.LENGTH_SHORT).show();
+                            Intent intent = new Intent(adminLogin.this, listItem.class);
+                            startActivity(intent);
+                            finish();
                         }
-
+                    }).addOnFailureListener(new OnFailureListener() {
                         @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Toasty.error(adminLogin.this, "Database Error" + error.getMessage(), Toast.LENGTH_SHORT, true).show();
+                        public void onFailure(@NonNull Exception e) {
+                            Toasty.error(adminLogin.this, "Invalid Username or Password", Toasty.LENGTH_SHORT).show();
                         }
                     });
                 }

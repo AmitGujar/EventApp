@@ -19,8 +19,6 @@ import java.util.Calendar;
 import es.dmoral.toasty.Toasty;
 
 public class MainActivity extends AppCompatActivity {
-
-//    DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://eventapp-fb89f-default-rtdb.firebaseio.com/");
 DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://eventappfinal-3f1bb-default-rtdb.firebaseio.com/");
     EditText date;
     int year;

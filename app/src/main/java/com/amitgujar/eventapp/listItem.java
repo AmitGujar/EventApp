@@ -18,31 +18,18 @@ import java.util.Map;
 
 public class listItem extends AppCompatActivity {
     DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReferenceFromUrl("https://eventappfinal-3f1bb-default-rtdb.firebaseio.com/");
-//    FirebaseDatabase firebaseDatabase;
-//    DatabaseReference databaseReference;
 
     private TextView eventname;
-//    private TextView retrieveTV1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_item);
-
-//        firebaseDatabase = FirebaseDatabase.getInstance();
-//
-//        databaseReference = firebaseDatabase.getReference("All Events");
-
         eventname = findViewById(R.id.eventname);
-//        retrieveTV1 = findViewById(R.id.idTVRetrieveData1);
-
         getdata();
     }
 
     private void getdata() {
-
-        // calling add value event listener method
-        // for getting the values from database.
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
